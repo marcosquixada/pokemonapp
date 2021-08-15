@@ -1,0 +1,41 @@
+<div class="poke-content">
+  <mat-progress-bar mode="indeterminate" *ngIf="!pokesNextReady"></mat-progress-bar>
+  <div fxLayout="row wrap" fxLayoutAlign="center center" style="padding: 2%">
+    <mat-form-field>
+      <input type="text" placeholder="buscar por nome" matInput (keyup)="searchPokemon($event)"/>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div *ngIf="pokesNextReady" fxLayout="row wrap" fxLayoutAlign="center center" style="padding: 2%">
+    <div *ngFor="let poke of pokesNext" style="margin: 0.5%;">
+      <mat-card class="mat-card-poke" fxFlex="0 1 calc(33.3% - 11px)" fxFlex.lt-md="0 1 calc(50% - 11px)"
+        fxFlex.lt-sm="100%">
+        <mat-card-title class="mat-card-title-poke">
+          <div class="row">
+            <p>
+              <span [routerLink]="['details/',poke.id]" style="font-size:0.9rem;" fxFlex="70"
+                fxLayoutAlign="start center">{{poke?.name}}</span>
+              <span fxFlex></span>
+              <mat-chip fxFlex="50" class="mat-chip-date" selected="true" fxLayoutAlign="center center">
+                <span style="font-size:0.7rem;">{{poke?.id}}</span>
+              </mat-chip>
+            </p>
+          </div>
+          <div class="row">
+            <mat-chip-list #types>
+              <mat-chip *ngFor="let type of poke.types">
+                {{type}}
+              </mat-chip>
+            </mat-chip-list>
+          </div>
+          <br>
+        </mat-card-title>
+        <mat-card-content fxLayoutAlign="center center">
+          <div [routerLink]="['details/',poke.id]">
+            <img src={{poke?.images?.small}} />
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

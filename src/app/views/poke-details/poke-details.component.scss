@@ -1,0 +1,57 @@
+.mat-card-poke {
+    border: 1px solid #cfd8dc;
+    border-radius: 4px 3px 6px / 2px 4px;
+    padding-top: 15px;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 0%;
+    margin: 10px;
+    min-height: 360px;
+    min-width: 280px;
+    max-width: 300px;
+}
+
+.mat-card-title-poke {
+    padding-left: 10px;
+    padding-top: 0px;
+    padding-right: 15px;
+    margin-bottom: 0px;
+    min-height: 48px;
+}
+
+.mat-grid-tile {
+    background: lightblue;
+}
+
+.mat-chip-date {
+    background-color: #90caf9 !important;
+    color: black !important;
+}
+
+.poke-content {
+    padding-top: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.poke-card-image {
+    max-width: 50%;
+}
+
+@media(min-width: 600px) {
+    .poke-card-image {
+        max-width: 58%;
+    }    
+}
+
+@media(min-width: 481px) {
+    .poke-card-image {
+        max-width: 100%;
+    }    
+}
+
+@media(min-width: 320px) {
+    .poke-card-image {
+        max-width: 100%;
+    }    
+}

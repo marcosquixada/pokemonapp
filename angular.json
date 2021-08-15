@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -102,5 +103,8 @@
       }
     }
   },
-  "defaultProject": "pokemon-app"
+  "defaultProject": "pokemon-app",
+  "cli": {
+    "analytics": "e8d5fee3-2e11-4cd7-b6f1-719aae0a3d70"
+  }
 }

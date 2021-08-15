@@ -1,0 +1,105 @@
+<div class="poke-content">
+  <mat-progress-bar mode="indeterminate" *ngIf="!pokesNextReady"></mat-progress-bar>
+  <div *ngIf="poke" fxLayout="row wrap" fxLayoutAlign="center center" style="padding: 2%">
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-chip fxFlex="50" class="mat-chip-date" selected="true" fxLayoutAlign="center center">
+          <span>{{poke.id}}</span>
+        </mat-chip>
+        <span fxFlex></span>
+        <h1 [routerLink]="['details/',poke.id]" fxFlex="70"
+          fxLayoutAlign="center center">{{poke.name}}</h1>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-chip fxFlex="50" class="mat-chip-date" selected="true" fxLayoutAlign="center center">
+          <span>Tipo(s):</span>
+        </mat-chip>
+        <span fxFlex></span>
+        <h1 *ngFor="let type of poke.types" [routerLink]="['details/',poke.id]" fxFlex="70"
+          fxLayoutAlign="center center">{{type}}</h1>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-chip fxFlex="50" class="mat-chip-date" selected="true" fxLayoutAlign="center center">
+          <span>Resistência(s):</span>
+        </mat-chip>
+        <span fxFlex></span>
+        <h1 *ngFor="let resistance of poke.resistances" [routerLink]="['details/',poke.id]" fxFlex="70"
+          fxLayoutAlign="center center">{{resistance.type}}</h1>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-chip fxFlex="50" class="mat-chip-date" selected="true" fxLayoutAlign="center center">
+          <span>Fraqueza(s):</span>
+        </mat-chip>
+        <span fxFlex></span>
+        <h1 *ngFor="let weakness of poke.weaknesses" [routerLink]="['details/',poke.id]" fxFlex="70"
+          fxLayoutAlign="center center">{{weakness.type}}</h1>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="center">
+        <div fxLayout="column">
+          <mat-chip-list #types>
+          </mat-chip-list>
+        </div>
+      </div>
+      <div fxLayout="row wrap" fxLayoutAlign="center">
+        <div fxLayout="column" *ngFor="let attack of poke.attacks">
+          <mat-card class="mat-card-poke" style="padding: 0px;">
+            <mat-card-title class="mat-card-title-poke">
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <div fxLayout="column">
+                  <h2>
+                    {{attack.name}}
+                  </h2>
+                </div>
+              </div>
+            </mat-card-title>
+            <mat-card-content fxLayoutAlign="center center">
+              <div fxLayout="row" fxLayoutAlign="center center" style="margin-left: 10px;margin-right:30px;">
+                <div fxLayout="column">
+                  <div fxLayout="row" fxLayoutAlign="space-between">
+                    <div fxLayout="column" fxLayoutAlign="center">
+                      <div fxLayout="row" fxLayoutAlign="center center">
+                        <h4 style="margin-right: 10px;">
+                          Custo:
+                        </h4>
+                        <p>
+                          {{attack.convertedEnergyCost}}
+                        </p>
+                      </div>
+                    </div>
+                    <div fxLayout="column">
+                      <div fxLayout="row" fxLayoutAlign="start center">
+                        <h4 style="margin-right: 40px;">
+                          Dano:
+                        </h4>
+                        <p>
+                          {{attack.damage}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div fxLayout="row">
+                    <h4>
+                      Descrição:
+                    </h4>
+                    <p style="padding-left: 15px;">
+                      {{attack.text}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div fxLayout="row">
+        
+      </div>
+      <div fxLayout="row">
+        
+      </div>
+    </div>
+    <div fxLayout="column" style="margin: 0.5%;" class="poke-card-image">
+      <img src={{poke.images.large}} />
+    </div>
+  </div>
+</div>
